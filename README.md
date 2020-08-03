@@ -2,6 +2,9 @@
 
 This repository contains a PoC of different ingress controllers in order to expose services.
 
+The goal is to setup different environments in order to get familiar with some available options
+and being able to evaluate them properly.
+
 ## Ingress Controllers
 
  - [Kubernetes Ingress Controller](k8s-ingress-controller): The standard Kubernetes Ingress Controller, based on [NGINX](https://github.com/kubernetes/ingress-nginx).
