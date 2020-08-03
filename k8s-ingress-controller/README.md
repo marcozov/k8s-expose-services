@@ -9,6 +9,8 @@ This is to deploy a simple web service and expose it to external clients.
 
 To create the service account: `kubectl create sa ingress-serviceaccount -n mzo-ingress-space`.
 
+Or: `kubectl apply -f service-account.yaml`.
+
 ## Roles and role bindings
  - roles: `kubectl apply -f ingress-role.yaml`
  - bindings: `kubectl apply -f ingress-role-binding.yaml`
