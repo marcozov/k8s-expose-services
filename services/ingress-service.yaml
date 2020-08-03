@@ -3,8 +3,11 @@ kind: Service
 metadata:
   name: ingress
   namespace: mzo-ingress-space
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
-  type: NodePort
+  #type: NodePort
+  type: LoadBalancer
   ports:
     - port: 80
       targetPort: 80
