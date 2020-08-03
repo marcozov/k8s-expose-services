@@ -3,8 +3,7 @@
 This is to deploy a simple web service and expose it to external clients.
 
 ## Namespace
- - app namespace: `kubectl create ns mzo-app-space`
- - ingress namespace: `kubectl create ns mzo-ingress-space`
+kubectl apply -f namespace.yaml
 
 ## Service account
 
@@ -24,19 +23,19 @@ Deploy the two applications:
 
 ## Services
 The deployments must be exposed:
- - `kubectl apply -f kubectl apply -f webapp-wear-service.yaml`
- - `kubectl apply -f kubectl apply -f webapp-video-service.yaml`
- - `kubectl apply -f kubectl apply -f default-http-backend-service.yaml`
+ - `kubectl apply -f kubectl apply -f services/webapp-wear-service.yaml`
+ - `kubectl apply -f kubectl apply -f services/webapp-video-service.yaml`
+ - `kubectl apply -f kubectl apply -f services/default-http-backend-service.yaml`
 
 ## Config Map
 
-`kubectl apply -f config_map.yaml`
+`kubectl apply -f config-map.yaml`
 
 ## Ingress Controller
-Setting up the ingress controller: `kubectl apply -f ingress-controller.yaml`.
+Setting up the ingress controller: `kubectl apply -f deployments/ingress-controller.yaml`.
 
 ## Ingress Service
-Exposing the controller: `kubectl apply -f ingress-service.yaml`.
+Exposing the controller: `kubectl apply -f services/ingress-service.yaml`.
 
 ## Ingress Resource
 Make sure that each path provides the right application: `kubectl apply -f ingress-resource.yaml`.
