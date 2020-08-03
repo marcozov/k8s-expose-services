@@ -1,0 +1,12 @@
+apiVersion: v1
+  kind: Namespace
+  metadata:
+    name: mzo-app-space
+
+---
+
+apiVersion: v1
+  kind: Namespace
+  metadata:
+    name: mzo-ingress-space
+
