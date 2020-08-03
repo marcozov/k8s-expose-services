@@ -40,3 +40,5 @@ Exposing the controller: `kubectl apply -f services/ingress-service.yaml`.
 ## Ingress Resource
 Make sure that each path provides the right application: `kubectl apply -f ingress-resource.yaml`.
 
+## Run a curl image
+`kubectl -n mzo-app-space run ubuntu --rm -i --tty --image curlimages/curl -- sh`
