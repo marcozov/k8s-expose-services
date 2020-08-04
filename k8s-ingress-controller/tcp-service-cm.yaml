@@ -4,6 +4,5 @@ metadata:
   name: tcp-services
   namespace: mzo-ingress-space
 data:
-  #"500": "mzo-app-space/echo-service:500"
   500: "mzo-app-space/echo-service:500"
   53: "kube-system/kube-dns:53"

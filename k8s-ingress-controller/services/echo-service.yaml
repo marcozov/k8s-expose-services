@@ -7,7 +7,7 @@ spec:
   ports:
     - port: 500 # port that must be reachable from the ingress resource
       protocol: TCP
-      targetPort: 500 # same as the port that the container is using
+      targetPort: 2000 # same as the port that the container is using
   selector:
     app: echo-server
   sessionAffinity: None
