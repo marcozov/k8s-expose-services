@@ -22,7 +22,7 @@ spec:
             - /nginx-ingress-controller
             - --configmap=$(POD_NAMESPACE)/nginx-configuration
             - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
-            - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
+#            - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
             - --default-backend-service=mzo-app-space/default-http-backend
             - --v=5
           env:
@@ -44,6 +44,6 @@ spec:
             - name: dns-tcp
               containerPort: 53
               protocol: TCP
-            - name: dns-udp
-              containerPort: 53
-              protocol: UDP
+#            - name: dns-udp
+#              containerPort: 53
+#              protocol: UDP
