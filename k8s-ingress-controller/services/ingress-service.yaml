@@ -21,5 +21,9 @@ spec:
       targetPort: 8080
       nodePort: 30090
       protocol: TCP
+    - port: 1000
+      protocol: TCP
+      name: "echo-service"
+      targetPort: 2000
   selector:
     name: nginx-ingress

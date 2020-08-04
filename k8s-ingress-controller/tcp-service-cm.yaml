@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tcp-services
+  namespace: mzo-ingress-space
+data:
+  1000: "mzo-app-space/echo-service:1000"
