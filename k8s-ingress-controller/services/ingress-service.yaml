@@ -15,9 +15,9 @@ spec:
       name: "http"
       targetPort: 8080
       protocol: TCP
-    - port: 1000
+    - port: 500
       protocol: TCP
       name: "echo-service"
-      targetPort: 2000
+      targetPort: 1000
   selector:
     name: nginx-ingress

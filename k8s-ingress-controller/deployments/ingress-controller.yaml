@@ -39,4 +39,4 @@ spec:
             - name: https
               containerPort: 443
             - name: echo
-              containerPort: 1000
+              containerPort: 500
