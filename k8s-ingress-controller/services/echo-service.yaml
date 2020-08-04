@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-service
+  namespace: mzo-app-space
+spec:
+  ports:
+    - port: 1000 # port that must be reachable from the ingress resource
+      protocol: TCP
+      targetPort: 2000 # same as the port that the container is using
+  selector:
+    app: echo-server
+  sessionAffinity: None
+  type: ClusterIP
