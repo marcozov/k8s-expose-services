@@ -23,6 +23,7 @@ spec:
             - --configmap=$(POD_NAMESPACE)/nginx-configuration
             - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
             - --default-backend-service=mzo-app-space/default-http-backend
+            - --v=5
           env:
             - name: POD_NAME
               valueFrom:
