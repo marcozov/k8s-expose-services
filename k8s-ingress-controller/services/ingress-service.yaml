@@ -9,6 +9,7 @@ spec:
   type: LoadBalancer
   ports:
     - port: 80
+      name: "default"
       targetPort: 80
       nodePort: 30080
     - port: 8080
