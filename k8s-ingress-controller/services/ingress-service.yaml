@@ -17,7 +17,7 @@ spec:
       protocol: TCP
     - port: 500
       protocol: TCP
-      name: "echo-service"
+      name: "proxied-tcp-500"
       targetPort: 500
     - name: "proxied-tcp-53"
       port: 53

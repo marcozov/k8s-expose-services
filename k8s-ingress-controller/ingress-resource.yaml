@@ -19,7 +19,7 @@ spec:
             backend:
               serviceName: video-service
               servicePort: 8080
-#          - path: /echo
-#            backend:
-#              serviceName: echo-service
-#              servicePort: 500 # port exposed by echo-service
+          - path: /echo
+            backend:
+              serviceName: echo-service
+              servicePort: 500 # port exposed by echo-service
