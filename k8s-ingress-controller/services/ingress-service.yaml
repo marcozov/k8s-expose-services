@@ -12,8 +12,14 @@ spec:
       targetPort: 80
       nodePort: 30080
     - port: 8080
+      name: "http"
       targetPort: 8080
       nodePort: 30081
+      protocol: TCP
+    - port: 8080
+      name: "web-svc"
+      targetPort: 8080
+      nodePort: 30090
       protocol: TCP
   selector:
     name: nginx-ingress
