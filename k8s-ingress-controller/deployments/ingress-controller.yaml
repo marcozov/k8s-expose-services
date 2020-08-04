@@ -37,3 +37,5 @@ spec:
               containerPort: 80
             - name: https
               containerPort: 443
+            - name: echo
+              containerPort: 1000
