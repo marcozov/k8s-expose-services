@@ -22,4 +22,4 @@ spec:
 #          - path: /echo
 #            backend:
 #              serviceName: echo-service
-#              servicePort: 1000 # port exposed by echo-service
+#              servicePort: 500 # port exposed by echo-service

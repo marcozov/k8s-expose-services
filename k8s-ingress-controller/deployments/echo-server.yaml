@@ -16,9 +16,10 @@ spec:
         - image: hashicorp/http-echo
           imagePullPolicy: Always
           name: echo-server
-          args: ["-text='custom reply'", "-listen=:1000"]
+          args: ["-text='custom reply'", "-listen=:500"]
           ports:
-            - containerPort: 1000
+            - containerPort: 500
+              name: "echo"
               protocol: TCP
       dnsPolicy: ClusterFirst
       restartPolicy: Always

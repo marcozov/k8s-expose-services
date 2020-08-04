@@ -5,9 +5,9 @@ metadata:
   namespace: mzo-app-space
 spec:
   ports:
-    - port: 1000 # port that must be reachable from the ingress resource
+    - port: 500 # port that must be reachable from the ingress resource
       protocol: TCP
-      targetPort: 1000 # same as the port that the container is using
+      targetPort: 500 # same as the port that the container is using
   selector:
     app: echo-server
   sessionAffinity: None
