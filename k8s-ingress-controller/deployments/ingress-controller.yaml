@@ -40,7 +40,7 @@ spec:
             - name: https
               containerPort: 443
             - name: echo
-              containerPort: 500
+              containerPort: 1000
             - name: dns-tcp
               containerPort: 53
               protocol: TCP

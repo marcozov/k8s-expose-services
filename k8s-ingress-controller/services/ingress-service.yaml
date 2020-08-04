@@ -15,7 +15,7 @@ spec:
       name: "http"
       targetPort: 8080
       protocol: TCP
-    - port: 500
+    - port: 1000
       protocol: TCP
       name: "echo-service"
       targetPort: 1000

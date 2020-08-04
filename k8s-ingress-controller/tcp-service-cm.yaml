@@ -5,5 +5,5 @@ metadata:
   namespace: mzo-ingress-space
 data:
   #"500": "mzo-app-space/echo-service:1000"
-  500: "mzo-app-space/echo-service:1000"
+  1000: "mzo-app-space/echo-service:1000"
   53: "kube-system/kube-dns:53"
