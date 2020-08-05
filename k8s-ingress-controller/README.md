@@ -60,4 +60,9 @@ Finally, the same port has to be exposed in the ingress service (the load balanc
       targetPort: 500
 ```
 
+One debugging tip that proves quite useful is to check whether the ingress controller really gets
+the ports configuration:
+ - spawn a shell: `kubectl -n mzo-ingress-space exec -it $CONTROLLER_POD_ID -- bash`.
+ - check `/etc/nginx/nginx.conf`. The new port should be found in the TCP (or UDP) services settings.
+
 ### Redis
