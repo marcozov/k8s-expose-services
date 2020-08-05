@@ -44,3 +44,20 @@ Make sure that each path provides the right application: `kubectl apply -f ingre
 
 ## Run a curl image
 `kubectl -n mzo-app-space run ubuntu --rm -i --tty --image curlimages/curl -- sh`
+
+## Deploy additional services
+Although Kubernetes Ingress only supports HTTP/HTTPS by default, it is possible to setup
+a config map to allow arbitrary TCP traffic: `kubectl apply -f tcp-service-cm.yaml`.
+
+Then, it has to be added to the ingress controller args:
+`--tcp-services-configmap=$(POD_NAMESPACE)/tcp-services`.
+
+Finally, the same port has to be exposed in the ingress service (the load balanced):
+```
+    - port: 500
+      protocol: TCP
+      name: "proxied-tcp-500"
+      targetPort: 500
+```
+
+### Redis
