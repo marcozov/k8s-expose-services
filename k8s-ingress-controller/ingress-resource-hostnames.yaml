@@ -8,6 +8,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
+  tls:
+    - hosts:
+        - test.echo.lakedev.azmk8s.io
+      secretName: test-cert
   rules:
     - http:
         paths:
