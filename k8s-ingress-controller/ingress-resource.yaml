@@ -26,7 +26,7 @@ spec:
     - host: test.echo.lakedev.azmk8s.io
       http:
         paths:
-          - path: /echo
+          - path: /
             backend:
               serviceName: echo-service
               servicePort: 500
