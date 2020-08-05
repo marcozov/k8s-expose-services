@@ -43,6 +43,9 @@ spec:
             - name: dns-tcp
               containerPort: 53
               protocol: TCP
+            - name: dns-redis
+              containerPort: 6379
+              protocol: TCP
 #            - name: dns-udp
 #              containerPort: 53
 #              protocol: UDP
