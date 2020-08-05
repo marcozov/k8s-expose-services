@@ -2,5 +2,6 @@ configMapGenerator:
 - name: example-redis-config
   files:
   - redis-config
+namespace: mzo-app-space
 resources:
 - redis-pod.yaml
