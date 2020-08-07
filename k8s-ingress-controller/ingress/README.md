@@ -42,4 +42,7 @@ The services in the related [folder](../services) must be deployed.
 Then, the services can be accessed via the IP address assigned to the load balancer (the ingress service)
 and the service port.
 
-
+- `telnet $LB_IP_ADDRESS 6379` to access `redis`.
+- `curl $LB_IP_ADDRESS/watch` to access `webapp-video`.
+- `curl $LB_IP_ADDRESS/wear` to access `webapp-wear`.
+- `curl test.echo.lakedev.azmk8s.io` (which is like `curl 10.236.95.9:500`) to access `echo-server`.
