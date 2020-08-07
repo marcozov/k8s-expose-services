@@ -1,9 +1,6 @@
 # TLS
 
 ### How-to
-`kubectl -n mzo-app-space create secret tls test-cert --key ${KEY_FILE} --cert ${CERT_FILE}`
-
-### Common TLS operations
 - Create key + certificate: `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ${KEY_FILE} -out ${CERT_FILE} -subj "/CN=${HOST}/O=${HOST}"`
 - Create a tls secret: `kubectl -n mzo-app-space create secret tls ${CERT_NAME} --key ${KEY_FILE} --cert ${CERT_FILE}`
 - Create CA Key + certificate: `openssl req -x509 -sha256 -newkey rsa:4096 -keyout ca.key -out ca.crt -days 356 -nodes -subj '/CN=My Cert Authority'`
