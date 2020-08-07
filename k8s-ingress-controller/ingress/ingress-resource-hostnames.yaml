@@ -13,7 +13,8 @@ spec:
         - test.echo.lakedev.azmk8s.io
       secretName: test-cert
   rules:
-    - http: # matching traffic to the load balancer IP address
+    - host: test.redis.lakedev.azmk8s.io
+      http: # matching traffic to the load balancer IP address
         paths:
           - path: /wear
             backend:
