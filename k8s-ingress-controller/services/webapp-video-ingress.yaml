@@ -4,12 +4,9 @@ metadata:
   name: webapp-video-ingress
   namespace: mzo-app-space
 spec:
-  #type: NodePort
   type: ClusterIP
   ports:
     - name: test
       port: 8080
-      #targetPort: 80
-      #nodePort: 30080
   selector:
     name: webapp-video # the pods / deployment to point to

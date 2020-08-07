@@ -11,3 +11,4 @@ and being able to evaluate them properly.
  - [NGINX Ingress Controller](nginx-ingress-controller): The [NGINX Ingress Controller](https://github.com/nginxinc/kubernetes-ingress).
  - [HAProxy Ingress Controller](haproxy-ingress-controller): The [HAProxy Ingress Controller](https://github.com/jcmoraisjr/haproxy-ingress).
  - [Istio Ingress Gateway](istio-ingress-gateway): The ingress gateway provided by [Istio](https://istio.io/latest/docs/tasks/traffic-management/ingress/).
+ - [Traefik Edge Router](traefik): [Traefik](https://docs.traefik.io/).

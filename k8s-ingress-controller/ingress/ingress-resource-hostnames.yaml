@@ -13,7 +13,7 @@ spec:
         - test.echo.lakedev.azmk8s.io
       secretName: test-cert
   rules:
-    - http:
+    - http: # matching traffic to the load balancer IP address
         paths:
           - path: /wear
             backend:
@@ -23,7 +23,7 @@ spec:
             backend:
               serviceName: video-service
               servicePort: 8080
-    - host: test.echo.lakedev.azmk8s.io
+    - host: test.echo.lakedev.azmk8s.io # matching traffic to test.echo.lakedev.azmk8s.io
       http:
         paths:
           - path: /

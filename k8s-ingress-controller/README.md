@@ -1,9 +1,9 @@
-# Mock webserver
+# PoC Kubernetes Ingress Controller
 
-This is to deploy a simple web service and expose it to external clients.
+Steps to easily deploy and configure a PoC Ingress Controller.
 
 ## Namespace
-`kubectl apply -f namespace.yaml`
+Create the namespaces involved in this PoC: `kubectl apply -f namespace.yaml`.
 
 ## Service account
 
@@ -22,47 +22,25 @@ Deploy the two applications:
  - webapp wear app: `kubectl apply -f deployments/webapp-wear.yaml`
  - default backend app: `kubectl apply -f deployments/default-backend.yaml`
 
+## Run an interactive curl image
+This can be a quick way to check whether a service is reachable within the Kubernetes cluster.
 
-## Services
-The deployments must be exposed:
- - `kubectl apply -f services/webapp-wear-service.yaml`
- - `kubectl apply -f services/webapp-video-service.yaml`
- - `kubectl apply -f services/default-http-backend-service.yaml`
+`kubectl -n mzo-app-space run curl --rm -i --tty --image curlimages/curl -- sh`
 
-## Config Map
-
-`kubectl apply -f config-map.yaml`
-
-## Ingress Controller
-Setting up the ingress controller: `kubectl apply -f deployments/ingress-controller.yaml`.
-
-## Ingress Service
-Exposing the controller: `kubectl apply -f services/ingress-service.yaml`.
-
-## Ingress Resource
-Make sure that each path provides the right application: `kubectl apply -f ingress-resource.yaml`.
-
-## Run a curl image
-`kubectl -n mzo-app-space run ubuntu --rm -i --tty --image curlimages/curl -- sh`
-
-## Deploy additional services
-Although Kubernetes Ingress only supports HTTP/HTTPS by default, it is possible to setup
-a config map to allow arbitrary TCP traffic: `kubectl apply -f tcp-service-cm.yaml`.
-
-Then, it has to be added to the ingress controller args:
-`--tcp-services-configmap=$(POD_NAMESPACE)/tcp-services`.
-
-Finally, the same port has to be exposed in the ingress service (the load balanced):
+### TLS
+- Create key + certificate: `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ${KEY_FILE} -out ${CERT_FILE} -subj "/CN=${HOST}/O=${HOST}"`
+- Create a tls secret: `kubectl -n mzo-app-space create secret tls ${CERT_NAME} --key ${KEY_FILE} --cert ${CERT_FILE}`
+- Create CA Key + certificate: `openssl req -x509 -sha256 -newkey rsa:4096 -keyout ca.key -out ca.crt -days 356 -nodes -subj '/CN=My Cert Authority'`
+- Server Key, Server certificate, sign the certificate with the CA Certificate:
+```$xslt
+openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr -nodes -subj '/CN=mydomain.com'
+openssl x509 -req -sha256 -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
 ```
-    - port: 500
-      protocol: TCP
-      name: "proxied-tcp-500"
-      targetPort: 500
+- Client Key, Client certificate, sign the certificate with the CA Certificate:
+```$xslt
+openssl req -new -newkey rsa:4096 -keyout client.key -out client.csr -nodes -subj '/CN=My Client'
+openssl x509 -req -sha256 -days 365 -in client.csr -CA ca.crt -CAkey ca.key -set_serial 02 -out client.crt
 ```
-
-One debugging tip that proves quite useful is to check whether the ingress controller really gets
-the ports configuration:
- - spawn a shell: `kubectl -n mzo-ingress-space exec -it $CONTROLLER_POD_ID -- bash`.
- - check `/etc/nginx/nginx.conf`. The new port should be found in the TCP (or UDP) services settings.
 
 ### Redis
+A separate folder was created for this application.
